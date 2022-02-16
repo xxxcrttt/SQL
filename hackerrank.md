@@ -128,4 +128,8 @@ FROM TRIANGLES;
 ```
 
 
+### 4. Occupation 
+![image](https://user-images.githubusercontent.com/56160038/154362598-0c81cd70-8f3b-4916-a8d3-aab8ac542954.png)
+
+Pivot the Occupation column in OCCUPATIONS so that each Name is sorted alphabetically and displayed underneath its corresponding Occupation.    
 
