@@ -26,16 +26,16 @@ Tables are related by keys.
 5. DELETE 
 
 ### 2-4. Exercise
-Q1. **Foreign Key**: is a database key that is used to link two tables together     
+**Q1.** **Foreign Key**: is a database key that is used to link two tables together     
     **Primary Key**: is a key in a relational database that is unique for each record
     
-Q2. Which statement is true about inserting data to a table?    
+**Q2.** Which statement is true about inserting data to a table?    
 A: You must execute the select statement after the insert into statement to see the result with the added row.
 
-Q3. What is the best way to return the number of rows in the student table?   
+**Q3.** What is the best way to return the number of rows in the student table?   
 A: ```SELECT COUNT (*) FROM student;```
 
-Q4. What is an example of a query to get only data containing the word "Apple"?    
+**Q4.** What is an example of a query to get only data containing the word "Apple"?    
 A: ```SELECT * FROM Fruits WHERE Name = 'Apple';``` 
 
 ## 3. Fundamental Concepts
@@ -50,3 +50,40 @@ A: ```SELECT * FROM Fruits WHERE Name = 'Apple';```
 9. Ordering output
 10. Conditional expressions
 
+### Exercise 
+**Q1.** To delete a table, use __ statement. A: ```DROP TABLE```    
+
+**Q2.** To insert a blank row use the __ clause. A: ```DEFAULT VALUES``` 
+
+**Q3.** Which statement is true about the ```DROP TABLE``` statement?    
+A: The ```DROP TABLE``` statement enables you to delete a table from a database.
+
+**Q4.** Column constraints are applied when the table is created.    A: True 
+
+**Q5.** The WHERE clause is used to: filter query results by row. 
+
+**Q6.** What is the correct format for creating an ID column for the Vehicles table in SQLite?   
+A: ```CREATE TABLE vehicles (VehicleID INTEGER PRIMARY KEY);```
+
+**Q7.** Why do you need to be careful and consult documentation when altering an existing table?    
+A: Syntax capabilities vary widely from one implementation of SQL to another.
+
+**Q8.** The ```ALTER``` is used to change a table schema.   
+
+**Q9.** Why would you use column constraints?   
+A: To make sure that values obey desired rules or behaviours. 
+
+**Q10.** Which statement is true about the id column in a SQL table?   
+A: A table can only have one id column.
+
+**Q11.** How do you add a new column and its data type to an existing table?    
+A: Once a table has been created, use the ```ALTER TABLE``` statement to add a new column and its data type.
+
+**Q12.** Which constraint ensures a column cannot have any duplicate values including null values?    
+A: ```UNIQUE NOT NULL```
+
+**Q13.** To what does a table schema refer?   
+A: the number of, titles for, and data types in columns
+
+**Q14.** The ```CREATE TABLE``` statement:   
+creates a table, defines the table columns, defines the table schema. 
