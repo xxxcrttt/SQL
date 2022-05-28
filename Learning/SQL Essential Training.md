@@ -24,3 +24,29 @@ Tables are related by keys.
 3. INSERT
 4. UPDATE 
 5. DELETE 
+
+### 2-4. Exercise
+Q1. **Foreign Key**: is a database key that is used to link two tables together     
+    **Primary Key**: is a key in a relational database that is unique for each record
+    
+Q2. Which statement is true about inserting data to a table?    
+A: You must execute the select statement after the insert into statement to see the result with the added row.
+
+Q3. What is the best way to return the number of rows in the student table?   
+A: ```SELECT COUNT (*) FROM student;```
+
+Q4. What is an example of a query to get only data containing the word "Apple"?    
+A: ```SELECT * FROM Fruits WHERE Name = 'Apple';``` 
+
+## 3. Fundamental Concepts
+1. Creating / deleting a table
+2. inserting / deleting rows
+3. The NULL value
+4. constraining columns
+5. changing a schema
+6. ID columns 
+7. filtering data
+8. Removing duolicates 
+9. Ordering output
+10. Conditional expressions
+
