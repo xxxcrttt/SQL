@@ -134,5 +134,46 @@ A: ```SELECT 'Karen''s Classroom';```
 **Q9.** Why is it important to convert all fields to the same case?   
 A: SQLite compares data based on case.
 
+## 6. Numbers 
 
+### Exercise
 
+**Q1.** Numeric types are NOT standardized across platforms. 
+
+**Q2.** Why can the use of real data types cause difficulties?   
+A: They sacrifice precision for scale.
+
+**Q3.** Which numeric type is an example of a real number? -- float 
+
+**Q4.** Use the ```TYPEOF()``` function to *find the type of an expression.*
+
+## 7. Dates and Times
+* All dates and times in UTC -- Coordinated Universal Time, technically equivalent to Greenwich Mean Time, 
+* Function: ```DATE, TIME, DATETIME, YEAR, INTERVAL```
+
+### Exercise
+**Q1.** Which option is an example of SQL syntax to add one day to the current day?   
+A: ```SELECT DATETIME('now', '+1 day');```
+
+**Q2.** Which format conforms to the SQL standard for datetime?   
+A: year - month - day hour : minute : second
+
+**Q3.** The SQL standard does NOT provide standardized date and time functions.
+
+## 8. Aggregates
+* Aggregate data is information derived from more than one row at a time. 
+
+### Exercise
+**Q1.** Use the ```DISTINCT``` keyword to remove duplicates from a result.
+
+**Q2.** Use the ```GROUP BY``` clause to collate groups of results before calling an aggregate function.
+
+**Q3.** The ```HAVING``` clause is used to filter aggregate data, generally follows ```GROUP BY```; 
+
+## 9. Transactions 
+* Transaction is a group of operations that handled as one unit of work. 
+
+### Exercise
+**Q1.** Transactions improve performance by *speed up execution by making reading and writing more efficient.*
+
+**Q2.** A transaction can drastically improve the performance of a set of write operations.
