@@ -87,3 +87,52 @@ A: the number of, titles for, and data types in columns
 
 **Q14.** The ```CREATE TABLE``` statement:   
 creates a table, defines the table columns, defines the table schema. 
+
+## 4. Relationships
+### 4-1. JOIN 
+INNER JOIN, LEFT OUTER JOIN, RIGHT OUTER JOIN, FULL OUTER JOIN 
+
+### 4-2. Exercise
+**Q1.** What type of relationship requires the use of a junction table?   
+A: many-to-many
+
+**Q2.** A joined query operates on columns from two or more tables in one query. -- True 
+
+**Q3.** What is the result of an inner join?   
+A: The results will include the rows from both tables where the join condition is met. 
+
+**Q4.** A joined query can include __ tables.  -- any number of 
+
+**Q5.** Why is a junction table necessary when combining data between tables?   
+A: A relationship is provided between the tables so they can be linked.
+
+## 5. Strings 
+
+**Q1.** What are the three arguments for the ```SUBSTR()``` function in SQLite?  
+A: string to evaluate, starting position, length of string   
+What if only has 2 argument? -- to retrieve a substring from a specified starting point to the end of the string
+
+**Q2.** Remove Space -- RTRIM / LTRIM / TRIM()
+
+**Q3.** If ID='CH297', which code returns the last 3 characters?   
+A: ```SELECT SUBSTR(ID,3);```
+
+**Q4.** Which code correctly returns the length of hospital names in the patient table in SQLite?   
+A: ```SELECT LENGTH(hospital);```
+
+**Q5.** standard SQL: both ```LENGTH() & SUBSTSR()``` are not!!
+
+**Q6.** What is the result of the following statement? ```SELECT TRIM('The test was a treat','t');```   
+A: ```The test was a trea```
+
+**Q7.** Which choice is the best way to represent a string?
+A: ```SELECT 'Karen''s Classroom';```
+
+**Q8.** The ```UPPER() & LOWER()``` functions can be used to fold the case of a string for sorting and comparisons.   
+-- True 
+
+**Q9.** Why is it important to convert all fields to the same case?   
+A: SQLite compares data based on case.
+
+
+
