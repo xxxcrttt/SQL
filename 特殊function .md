@@ -157,7 +157,10 @@ select substring(‘bacda’,2)
 \\ ’acda’，代码表示返回从第2个字符起到末尾所有的字符串
 ```
 
-
+## 窗口函数
+### row_number() over partition by
+函数的含义为先分组再排序    
+```row_number() over (partition by col1 order by col2)```表示先根据 col1 分组，在分组内部再根据 col2 进行排序
 
 
 
