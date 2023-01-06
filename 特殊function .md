@@ -163,7 +163,11 @@ select substring(‘bacda’,2)
 ```row_number() over (partition by col1 order by col2)```表示先根据 col1 分组，在分组内部再根据 col2 进行排序
 
 
-
+### limit / offset 
+```select _column,_column from _table [where Clause] [limit N][offset M]```
+* ```limit N```: 返回 N 条记录
+* ```offset M```: 跳过 M 条记录，默认 M = 0
+* ```limit N,M```: 相当于 limit M offset N , 从第 N 条记录开始, 返回 M 条记录
 
 
 
