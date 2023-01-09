@@ -46,7 +46,7 @@ WHERE university ='UCL')
 是以左表为基础，根据ON后给出的两表的条件将两表连接起来。  
 结果会将左表所有的查询信息列出，而右表只列出ON后条件与左表满足的部分。
 
-在使用Left join 时，写在前面的表为匹配时的底表，使用on给出匹配条件，匹配条 件可以不唯一。
+在使用Left join 时，写在前面的表为匹配时的底表，使用on给出匹配条件，匹配条件可以不唯一。
 
 ### Right JOIN 右连接
 以右表为基础，返回右表的所有行
@@ -157,7 +157,8 @@ select substring(‘bacda’,2)
 \\ ’acda’，代码表示返回从第2个字符起到末尾所有的字符串
 ```
 
-## 窗口函数
+## 窗口函数 over ([partition by <row_num>] order by <> ) 
+
 ### row_number() over partition by
 函数的含义为先分组再排序    
 ```row_number() over (partition by col1 order by col2)```表示先根据 col1 分组，在分组内部再根据 col2 进行排序
@@ -170,4 +171,24 @@ select substring(‘bacda’,2)
 * ```limit N,M```: 相当于 limit M offset N , 从第 N 条记录开始, 返回 M 条记录
 
 
+### RANK 排序
+* ```RANK()```: 在计算排序时，若存在相同位次，会跳过之后的为位次 (如：1，1，1，4...)
+* ```DENSE_RANK()```: 若存在相同位次，不会跳过之后的位次 (1,1,1,2...)
+* ```ROW_NUMBER()```： 赋予唯一的连续位次 (1,2,3,4.... 无论是否相同)
+
+
+## 插入记录
+```SQL
+INSERT/REPLACE INTO table_name (column_names) VALUES 
+(value1, value2,.... )
+```
+## 更新记录
+```SQL 
+UPDATE table_name 
+SET tag = '', //不能使用and 分割，直接用逗号分割
+WHERE tag = ''
+```
+
+
+## 删除记录
 
