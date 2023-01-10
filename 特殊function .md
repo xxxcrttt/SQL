@@ -124,6 +124,10 @@ date1 > date2：返回正数; date1 < date 2: 返回负数
 ```date_add(string startdate, interval int day) ```   
 返回开始日期startdate增加days天后的日期
 
+### 时间差计算
+```TIMESTAMPDIFF(interval, time_start, time_end)```可以计算 (time_start - time_end) 的时间差，单位以指定的 interval 为准   
+通常可选: second, minute, hour, day, month, year 
+
 
 ## 文本函数
 
@@ -191,4 +195,79 @@ WHERE tag = ''
 
 
 ## 删除记录
+* 根据条件删除: 
+```SQL 
+DELETE FROM table_name 
+[WHERE options]
+[[ORDER BY fields] LIMIT n]
+```
+* 全部删除(清空表): ```TRUNCATE table_name ```
+
+## 创建表单
+### 1. 直接创建
+```SQL 
+CREATE TABLE
+[IF NOT EXISTS] tb_name -- 不存在才创建，存在就跳过
+(column_name1 data_type1 -- 列名和类型必选
+  [ PRIMARY KEY -- 可选的约束，主键
+   | FOREIGN KEY -- 外键，引用其他表的键值
+   | AUTO_INCREMENT -- 自增ID
+   | COMMENT comment -- 列注释（评论）
+   | DEFAULT default_value -- 默认值
+   | UNIQUE -- 唯一性约束，不允许两条记录该列值相同
+   | NOT NULL -- 该列非空
+  ], ...
+) [CHARACTER SET charset] -- 字符集编码
+[COLLATE collate_value] -- 列排序和比较时的规则（是否区分大小写等）
+```
+
+### 2. 从另一张表复制
+```CREATE TABLE tb_name LIKE tb_name_old```
+
+### 3. 从另一张表的查询结果创建表
+```CREATE TABLE tb_name AS SELECT * FROM tb_name_old WHERE options```
+
+### 4. 修改表: 
+```SQL 
+ALTER TABLE table_name 
+{ ADD COLUMN <列名> <类型>  -- 增加列
+ | CHANGE COLUMN <旧列名> <新列名> <新列类型> -- 修改列名或类型
+ | ALTER COLUMN <列名> { SET DEFAULT <默认值> | DROP DEFAULT } -- 修改/删除 列的默认值
+ | MODIFY COLUMN <列名> <类型> -- 修改列类型
+ | DROP COLUMN <列名> -- 删除列
+ | RENAME TO <新表名> -- 修改表名
+ | CHARACTER SET <字符集名> -- 修改字符集
+ | COLLATE <校对规则名> } -- 修改校对规则（比较和排序时用到）
+```
+```sql 
+alter table 增加的表格 add 增加列的名称 数据类型 位置;
+alter table 表名 change 原列名 修改列名 修改数据类型;
+alter table 表明 modify 修改列名称 数据类型 默认值等;
+```
+
+### 5. 删除表
+```DROP TABLE [IF EXISTS] table1 [, table2]```
+
+
+## 创建索引
+
+### 1. create 方式创建索引
+```sql 
+CREATE
+  [UNIQUE -- 唯一索引
+  | FULLTEXT -- 全文索引
+  ] INDEX index_name ON table_name -- 不指定唯一或全文时默认普通索引
+  (column1[(length) [DESC|ASC]] [,column2,...]) -- 可以对多列建立组合索引 
+```
+
+### 2. 
+```DROP INDEX <索引名> ON <表名>```   
+```ALTER TABLE <表名> DROP INDEX <索引名>```
+
+### 3. 使用
+1. 索引使用时满足最左前缀匹配原则，多以组合索引(col1, col2), 在不考虑引擎优化时，条件必须是 col1 在前 col2 在后，或者只使用col1，索引才会生效
+2. 索引不包含有 NULL 的列
+3. 一个查询只使用一次索引，如果where中使用了索引，order by 就不会使用
+4. like 做字段比较时只有前缀确定时才会使用索引
+5. 在列上进行运算后不会使用索引 
 
